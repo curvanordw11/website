@@ -33,11 +33,11 @@ export default defineConfig({
     build: {
         chunkSizeWarningLimit: 800,
         rollupOptions: {
-            output: {
-                chunkFileNames: 'assets/js/[name]-[hash].js',
-                entryFileNames: 'assets/js/[name]-[hash].js',
-                assetFileNames: 'assets/static/[ext]/[name]-[hash].[ext]'
-            }
+            // output: {
+            //     chunkFileNames: 'assets/js/[name]-[hash].js',
+            //     entryFileNames: 'assets/js/[name]-[hash].js',
+            //     assetFileNames: 'assets/static/[ext]/[name]-[hash].[ext]'
+            // }
         }
     },
     server: {
