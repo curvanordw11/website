@@ -15,6 +15,15 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
+        importToCDN({
+            modules: [
+                {
+                    name: 'vue-demi',
+                    var: 'VueDemi',
+                    path: `https://unpkg.com/vue-demi@0.13.11`,
+                }
+            ],
+        }),
         vue(),
         visualizer(),
         AutoImport({
@@ -33,11 +42,11 @@ export default defineConfig({
     build: {
         chunkSizeWarningLimit: 800,
         rollupOptions: {
-            // output: {
-            //     chunkFileNames: 'assets/js/[name]-[hash].js',
-            //     entryFileNames: 'assets/js/[name]-[hash].js',
-            //     assetFileNames: 'assets/static/[ext]/[name]-[hash].[ext]'
-            // }
+            output: {
+                chunkFileNames: 'assets/js/[name]-[hash].js',
+                entryFileNames: 'assets/js/[name]-[hash].js',
+                assetFileNames: 'assets/static/[ext]/[name]-[hash].[ext]'
+            }
         }
     },
     server: {
