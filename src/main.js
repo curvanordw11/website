@@ -6,6 +6,9 @@ import 'element-plus/theme-chalk/display.css'
 import './static/element.scss'
 import './static/main.css'
 
+import elementPlus from 'element-plus'
+
 const app = createApp(App)
 app.use(router)
+app.use(elementPlus)
 app.mount('#app')
