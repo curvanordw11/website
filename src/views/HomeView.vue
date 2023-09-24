@@ -32,7 +32,7 @@
         </el-col>
         <el-col :xs="22" :sm="22" :md="10" :lg="10" :xl="10">
             <div class="about-img">
-                <img src="@/assets/home/home_banner2.jpg" alt="about" style="width: 100%;object-fit: cover;">
+                <img src="/assets/home/home_banner2.jpg" alt="about" style="width: 100%;object-fit: cover;">
             </div>
         </el-col>
     </el-row>
@@ -112,10 +112,10 @@ function getNews() {
     })
 }
 let carouselItem = ref([
-    { text: '', img: new URL(`@/assets/home/home_banner1.jpg`, import.meta.url).href },
-    { text: 'xdm', img: new URL(`@/assets/home/home_banner5.jpg`, import.meta.url).href },
-    { text: '干件正事', img: new URL(`@/assets/home/home_banner3.jpg`, import.meta.url).href },
-    { text: '随我去上点压力', img: new URL(`@/assets/home/home_banner4.jpg`, import.meta.url).href }
+    { text: '', img: new URL(`/assets/home/home_banner1.jpg`, import.meta.url).href },
+    { text: 'xdm', img: new URL(`/assets/home/home_banner5.jpg`, import.meta.url).href },
+    { text: '干件正事', img: new URL(`/assets/home/home_banner3.jpg`, import.meta.url).href },
+    { text: '随我去上点压力', img: new URL(`/assets/home/home_banner4.jpg`, import.meta.url).href }
 ])
 </script>
 
