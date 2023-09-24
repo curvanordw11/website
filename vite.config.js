@@ -18,11 +18,11 @@ export default defineConfig({
         vue(),
         visualizer(),
         AutoImport({
-            resolvers: [ElementPlusResolver()],
+            resolvers: [ ElementPlusResolver() ],
             imports: ['vue']
         }),
         Components({
-            resolvers: [ElementPlusResolver()],
+            resolvers: [ ElementPlusResolver() ],
         })
     ],
     resolve: {
