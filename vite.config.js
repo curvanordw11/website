@@ -11,10 +11,30 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 import AutoImport from 'unplugin-auto-import/vite'
 import vue from '@vitejs/plugin-vue'
+import externalGlobals from 'rollup-plugin-external-globals'
+
+const externalGlobalsObj = {
+    vue: 'Vue',
+    'vue-demi': 'VueDemi',
+    'vue-router': 'VueRouter',
+    'element-plus': 'ElementPlus',
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
+
+        vue(),
+        visualizer(),
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+            imports: ['vue']
+        }),
+        {
+            ...externalGlobals(externalGlobalsObj),
+            enforce: 'post',
+            apply: 'build',
+        },
         importToCDN({
             modules: [
                 {
@@ -23,12 +43,6 @@ export default defineConfig({
                     path: `https://unpkg.com/vue-demi@0.13.11`,
                 }
             ],
-        }),
-        vue(),
-        visualizer(),
-        AutoImport({
-            resolvers: [ElementPlusResolver()],
-            imports: ['vue']
         }),
         Components({
             resolvers: [ElementPlusResolver()],
