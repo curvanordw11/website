@@ -1,0 +1,84 @@
+https://console-docs.apipost.cn/preview/7952315ee6e0891f/53196fdd1c597fa7
+
+###
+
+POST http://10.10.10.27:7201/blogs/getBlogs HTTP/1.1
+content-type: application/json
+
+{
+    "page":1,
+    "pageSize":5,
+    "blogsType":1
+}
+
+###
+
+POST http://10.10.10.27:7201/message/saveMessage HTTP/1.1
+content-type: application/json
+
+{
+    "name":"测试",
+    "phone":"150112355698",
+    "email":"11@5.com",
+    "intentionCourses":"电影",
+    "content":"我想留学",
+    "coursesId":""
+}
+
+###
+
+POST http://10.10.10.27:7201/blogs/saveBlogs HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VGltZSI6IjE2ODEwNTMzMzUwMTkiLCJleHAiOjE2ODEwODkzMzUsImFjY291bnQiOiJhZG1pbiJ9.Ozyq1Y29GFcE5kqpBxgW0fDWj3uz7tMQ34Mdl89ws3w
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+测试保存
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="duration"
+
+duration
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="arrange"
+
+arrange
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="blogsType"
+
+1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="coursesDesc"
+
+阿的说法是的发送到发送到发斯蒂芬
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="chat.png"
+Content-Type: image/png
+
+@./src/assets/chat.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+POST http://10.10.10.27:7201/user/login
+content-type: application/json
+
+{
+    "account":"admin",
+    "password":"MTIzNDU2"
+}
+
+###
+
+GET http://10.10.10.27:7201/blogs/getBlogInfo/1094358088158281728
+content-type: application/json
+
+###
+
+POST http://10.10.10.27:7201/user/getPageUsers
+content-type: application/json
+
+{
+    "page":1,
+    "pageSize":5
+}
