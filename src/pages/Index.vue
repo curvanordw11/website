@@ -2,7 +2,7 @@
     <el-menu ref="menu" style="position: sticky; top: 0;" :default-active="activePath" mode="horizontal" router :ellipsis="false" menu-trigger="click" background-color="#000">
         <div class="menu" >
             <div style="width: 180px;overflow-x: hidden;">
-                <img src="/assets/logo.jpg" alt="Eduhome" height="56">
+                <img src="@/assets/logo.jpg" alt="Eduhome" height="56">
             </div>
             <div style="flex-grow: 1;text-align: center;font-size: 2.5vw;font-family:FZShuTi;color: #ecf0f1">齊&emsp;魯&emsp;之&emsp;師&emsp;&emsp;&emsp;耀&emsp;武&emsp;中&emsp;華</div>
             <div class="hidden-xs-only" style="display: flex; align-items: flex-end;color: #ecf0f1">
@@ -36,7 +36,7 @@
                 <div class="single-widget">
                     <div>
                         <div style="overflow: hidden;width: 100%;text-align: center">
-                            <RouterLink to="/w/home"><img src="/assets/logo.jpg" alt="eduhome" height="80"></RouterLink>
+                            <RouterLink to="/w/home"><img src="@/assets/logo.jpg" alt="eduhome" height="80"></RouterLink>
                         </div>
                         <div style="overflow: hidden;width: 100%;text-align: center;font-size: 22px;"> <i>右翼之鹰</i><p style="white-space: nowrap;">AQUILA ULTRA DESTRA</p></div>
                     </div>
