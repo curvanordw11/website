@@ -19,12 +19,12 @@ $(window).on("load", function() {
 
 $(function () {
 	'use strict';
-	
-	
+
+
 	/*
 		Vars
 	*/
-	
+
 	var width = $(window).width();
 	var height = $(window).height();
 
@@ -57,7 +57,7 @@ $(function () {
 	/*
 		Header Menu Desktop
 	*/
-	
+
 	if($('#home-card').length) {
 		$('.top-menu').on('click', 'a', function(){
 
@@ -68,7 +68,7 @@ $(function () {
 			var card_item = $(id);
 			var menu_items = $('.top-menu li');
 			var menu_item = $(this).closest('li');
-			
+
 			if(!menu_item.hasClass('active') & $('#home-card').length) {
 
 				/* close card items */
@@ -83,7 +83,13 @@ $(function () {
 					$(card_item).addClass('active');
 				}, 1000);
 			}
-		
+
+				if($('.header').hasClass('opened')) {
+					$('.header').removeClass('opened');
+				} else {
+					$('.header').addClass('opened');
+				}
+
 			return false;
 		});
 	}
@@ -92,18 +98,18 @@ $(function () {
 	/*
 		Youtube video background
 	*/
-	
+
 	if($('#video-bg').length) {
 		var myPlayer = $("#video-bg").YTPlayer();
 	}
-	
-	
+
+
 	/*
 		Initialize masonry items
 	*/
-	
+
 	var $container = $('.grid-items');
-	
+
 	$container.imagesLoaded(function() {
 		$container.multipleFilterMasonry({
 			itemSelector: '.grid-item',
@@ -112,12 +118,12 @@ $(function () {
 			gutter: 0
 		});
 	});
-	
+
 
 	/*
 		12. Initialize masonry filter
 	*/
-	
+
 	$('.filter-button-group').on('change', 'input[type="radio"]', function() {
 		if ($(this).is(':checked')) {
 			$('.f_btn').removeClass('active');
@@ -132,7 +138,7 @@ $(function () {
 				verticalFit: true
 			}
 		});
-	
+
 		/* popup video */
 		$('.has-popup-video').magnificPopup({
 			disableOn: 700,
@@ -143,18 +149,18 @@ $(function () {
 			disableOn: 0,
 			mainClass: 'popup-box'
 		});
-	
+
 		/* popup music */
-		$('.has-popup-music').magnificPopup({
-			disableOn: 700,
-			type: 'iframe',
-			removalDelay: 160,
-			preloader: false,
-			fixedContentPos: false,
-			disableOn: 0,
-			mainClass: 'popup-box'
-		});
-	
+		// $('.has-popup-music').magnificPopup({
+		// 	disableOn: 700,
+		// 	type: 'iframe',
+		// 	removalDelay: 160,
+		// 	preloader: false,
+		// 	fixedContentPos: false,
+		// 	disableOn: 0,
+		// 	mainClass: 'popup-box'
+		// });
+
 		/* popup media */
 		$('.has-popup-media').magnificPopup({
 			type: 'inline',
@@ -163,12 +169,12 @@ $(function () {
 			mainClass: 'popup-box-inline'
 		});
 	});
-	
-	
+
+
 	/*
 		Popups
 	*/
-	
+
 	/* popup image */
 	$('.has-popup-image').magnificPopup({
 		type: 'image',
@@ -178,7 +184,7 @@ $(function () {
 			verticalFit: true
 		}
 	});
-	
+
 	/* popup video */
 	$('.has-popup-video').magnificPopup({
 		disableOn: 700,
@@ -189,18 +195,18 @@ $(function () {
 		disableOn: 0,
 		mainClass: 'popup-box'
 	});
-	
+
 	/* popup music */
-	$('.has-popup-music').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		removalDelay: 160,
-		preloader: false,
-		fixedContentPos: false,
-		disableOn: 0,
-		mainClass: 'popup-box'
-	});
-	
+	// $('.has-popup-music').magnificPopup({
+	// 	disableOn: 700,
+	// 	type: 'iframe',
+	// 	removalDelay: 160,
+	// 	preloader: false,
+	// 	fixedContentPos: false,
+	// 	disableOn: 0,
+	// 	mainClass: 'popup-box'
+	// });
+
 	/* popup media */
 	$('.has-popup-media').magnificPopup({
 		type: 'inline',
@@ -215,12 +221,12 @@ $(function () {
 			}
 		}
 	});
-	
-	
+
+
 	/*
 		Validate Contact Form
 	*/
-	
+
 	$("#cform").validate({
 		ignore: ".ignore",
 		rules: {
@@ -252,10 +258,10 @@ $(function () {
 				dataType: 'json',
 				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
 				beforeSend: function() {
-				
+
 				},
 				complete: function() {
-				
+
 				},
 				success: function(data) {
 					$('#cform').fadeOut();
@@ -264,12 +270,12 @@ $(function () {
 			});
 		}
 	});
-	
-	
+
+
 	/*
 		Validate Commect Form
 	*/
-	
+
 	$("#comment_form").validate({
 		rules: {
 			name: {
@@ -283,12 +289,12 @@ $(function () {
 		submitHandler: function() {
 		}
 	});
-	
-	
+
+
 	/*
 		Google Maps
 	*/
-	
+
 	if($('#map').length) {
 		initMap();
 	}
@@ -307,7 +313,7 @@ $(function () {
 
 	$(window).resize(function() {
 		var width = $(window).width();
-		
+
 		if(($('.blogs-content').height() > $('.blogs-sidebar').height()) && (width > 1023)) {
 			$('.blogs-sidebar').css({'min-height' : $('.blogs-content').height()});
 		}
@@ -322,7 +328,7 @@ $(function () {
 		if(!$('#home-card').length) {
 			location.href = '/' + $(this).attr('href');
 		}
-	
+
 		return false;
 	});
 
@@ -387,7 +393,7 @@ function initMap() {
 		scrollwheel: false,
 		styles: styles
 	}
-	
+
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	var marker = new google.maps.Marker({
 		position: myLatlng,
